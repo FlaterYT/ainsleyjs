@@ -27,8 +27,6 @@ client.on("message", async message => {
         if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
           // channel just for bot spamming, you can remove the below line and the entire prune command.
-          message.channel.send("/prune");
-          count++;
 
           /* These numbers are good for if you want the messages to be deleted.
            * I've also noticed that Discord pauses for about 4 seconds after you send 9
