@@ -129,6 +129,7 @@ client.on('message', (message) => {
     }
 });
 
+client.on("message", (message) => {
     if(command === "ainsley say"){
       let text = args.slice(1).join(" ");
       message.delete();
