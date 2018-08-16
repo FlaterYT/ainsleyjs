@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
-const Commando = require('discord.js-commando');
-const client = new Commando.Client();
 client.config = config;
 
 client.on("ready", () => {
@@ -131,7 +129,7 @@ client.on('message', (message) => {
     }
 });
 
-client.on('ainsley say', (message) => {
+client.on('message', (message) => {
      if (message.author.id !== client.user.id && message.content){ 
         message.channel.sendMessage(message.content);
     }
