@@ -130,7 +130,7 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {  
-        if(message.content.startswith('ainsley say')){
+        if (message.content === "ainsley say" && message.content){ 
            message.channel.sendMessage(message.content);
   }
 });
