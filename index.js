@@ -62,7 +62,7 @@ client.on("message", async message => {
   }
 
   
-client.user.setActivity('Spamming nimas server', 'https://www.twitch.tv/ninja') });
+client.user.setActivity('Socking my nan', 'https://www.twitch.tv/ninja') });
 
 
 client.login(process.env.B0T_T0KEN);
