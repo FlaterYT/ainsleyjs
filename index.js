@@ -129,13 +129,10 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', (message) => {
-  var prefix = 'ainsley'
-  
-  if(message.content.startswith('${prefix} say')) {
-    var text = message.content.split(' ').slice(1).join(' ')
-    if(!text) return message.reply('Say something you waste of meat.')
-   message.channel.send(text)
+client.on('message', (message) => {  
+        if(message.content.startswith('ainsley say')) {
+          if (message.author.id !== bot.user.id && message.content){ 
+        message.channel.sendMessage(message.content);
   }
 });
 
