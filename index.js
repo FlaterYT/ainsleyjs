@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
+const emojiName = "ash"; //This only works with custom emojis atm
+const messageContent = "why";
 client.config = config;
 
 client.on("ready", () => {
