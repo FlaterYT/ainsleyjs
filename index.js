@@ -4,8 +4,6 @@ const client = new Discord.Client();
 const config = require('./config.json');
 client.config = config;
 
-const prefix = "/"
-
 client.on("ready", () => {
   client.user.setGame("Socking my nan", "https://www.twitch.tv/nimaaa/");
   console.log("Ready to level up!")
@@ -132,18 +130,6 @@ client.on('message', (message) => {
     }
 });
 
-client.on("guildMemberAdd", member => {
-   member.guild.defaultChannel.send("Welcome to: " + member.guild.name + " Hope you enjoy it here")
-});
-
-client.on("guildMemberRemove", member => {
-   member.guild.defaultChannel.send("Goodbye: " + member.user.username + " from " + member.guild.name)
-});
-
-client.on("guildCreate", guild => {
-	console.log("Some one added the test bot to a server created by: " + guild.owner.user.username)
-});
-
 client.on("message", async (message) => {
 	if (message.author.bot) return;
 	if (!message.content.startsWith(prefix)) return;
@@ -157,7 +143,7 @@ client.on("message", async (message) => {
 		message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
 	} else
 
-	if (command === " ainsley say") {
+	if (command === "ainsley say") {
 		message.delete()
         const embed = new Discord.RichEmbed()
 		.setColor(0x954D23)
@@ -175,8 +161,7 @@ client.on("message", async (message) => {
 		.addField("!announcement [text]", "Will make the bot say an announcement and tag everyone")
 		.addField("!cat", "Will send a random cat image");
 		message.channel.send({embed})
-	}
-
+  }
 });
 
 client.on("message", async message => {
