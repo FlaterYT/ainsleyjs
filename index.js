@@ -52,7 +52,7 @@ client.on("message", async message => {
     sendSpamMessage();
   }
   
-      client.user.setActivity({game: {name: "socking my nan", type: 0}});
+      client.user.setGame('socking my nan')
   }
 
   /*if (command === "prune") {
