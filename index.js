@@ -50,10 +50,12 @@ client.on("message", async message => {
 
     message.delete().catch(O_o=>{})
     sendSpamMessage();
-  }
+  
+});
   
       client.user.setGame('socking my nan')
-  }
+ 
+});
 
   /*if (command === "prune") {
     setTimeout(prune, 1000); // Theoretically waits long enough to avoid 10008 error
