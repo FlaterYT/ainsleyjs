@@ -52,6 +52,83 @@ client.on("message", (message) => {
   }
 });
 
+client.on('message', (message) => {
+    if(message.content == 'meme'){
+        var meme = Math.floor((Math.random() * 13) + 1);
+       
+      
+      
+      if (meme == 1) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://i.kym-cdn.com/photos/images/newsfeed/000/489/966/dc2.jpg" 
+             });
+}
+       if (meme == 2) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://i.kym-cdn.com/photos/images/facebook/000/940/872/587.jpg" 
+             });
+}
+      
+        if (meme == 3) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://i.pinimg.com/originals/8e/6d/0b/8e6d0bc25df590ca5287fa574109a079.png" 
+             });
+}
+      
+       if (meme == 4) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://i.imgur.com/iKWk54H.jpg" 
+             });
+}
+      
+      if (meme == 5) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "http://s.quickmeme.com/img/c5/c58bd0f654c59e3771817b244eb12de3053d4fe0beac68d5ac32d59dbb684565.jpg" 
+             });
+}
+      
+      if (meme == 6) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "http://i.imgur.com/iB7l5.jpg" 
+             });
+}
+      if (meme == 7) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://i.kym-cdn.com/photos/images/original/000/123/548/1305458703717.jpg" 
+             });
+}
+      
+      
+            if (meme == 8) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "http://s.quickmeme.com/img/96/96280b593c7bf446ef9766a378b98cc569b9c52af10351dd0be91014880e6c0f.jpg" 
+             });
+}			 
+      
+      
+            if (meme == 9) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "http://t.qkme.me/3scqhb.jpg" 
+             });
+}  
+      
+      
+            if (meme == 10) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://pbs.twimg.com/media/CrNUNf3WYAAt_pJ.jpg" 
+             });
+} 
+      
+      
+            if (meme == 11) {
+   message.channel.send("Hot and Spicy Meat! YeAh BoY!", {
+            file: "https://i.kym-cdn.com/photos/images/original/000/915/876/ed4.png" 
+             });
+}          
+      
+    }
+});
+
 client.on("message", async message => {
   const prefix = config.prefix;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
