@@ -15,7 +15,7 @@ client.on("message", (message) => {
 });
 
 client.on("message", (message) => {
-    if(message.content === ) {
+    if(message.content === "ainsley") {
     message.react('🍆');
   }
 });
