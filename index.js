@@ -62,7 +62,7 @@ client.on("message", async message => {
   }
 
   
-client.user.setActivity('Socking my nan', 'https://www.twitch.tv/ninja') });
+client.user.setActivity({game: {name: "socking my nan", type: 0}});
 
 
 client.login(process.env.B0T_T0KEN);
