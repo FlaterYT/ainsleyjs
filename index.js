@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
+const Commando = require('discord.js-commando');
+const bot = new Commando.Client();
 client.config = config;
 
 client.on("ready", () => {
