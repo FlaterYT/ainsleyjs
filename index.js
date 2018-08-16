@@ -131,8 +131,11 @@ client.on('message', (message) => {
 
 client.on('message', (message) => {
     if (command === "ainsley say") {
-    if (message.author.id !== client.user.id && message.content){ 
-        message.channel.sendMessage(message.content);
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setDescription(message.author.username + " says: " + args.join(" "));
+		message.channel.send({embed})
     }
 
 });
