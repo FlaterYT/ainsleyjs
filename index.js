@@ -14,6 +14,11 @@ client.on("message", (message) => {
   }
 });
 
+client.on("message", (message) => {
+    message.react('🍆');
+  }
+});
+
 client.on("message", async message => {
   const prefix = config.prefix;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
