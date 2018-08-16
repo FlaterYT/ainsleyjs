@@ -129,7 +129,7 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', message => {
+client.on('message', (message) => {
   var prefix = 'ainsley'
   
   if(message.content.startswith('${prefix} say')) {
