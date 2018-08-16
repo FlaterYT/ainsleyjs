@@ -32,8 +32,8 @@ client.on("message", async message => {
            * I've also noticed that Discord pauses for about 4 seconds after you send 9
            * messages in rapid succession, and this prevents that. I rarely have any spam
            * messages slip through unless there is a level up from mee6 or Tatsumaki. */
-          let minTime = Math.ceil(100);  // Rush RP1
-          let maxTime = Math.floor(250); // Arbitrary integer
+          let minTime = Math.ceil(2112);  // Rush RP1
+          let maxTime = Math.floor(3779); // Arbitrary integer
           let timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
           setTimeout(sendSpamMessage, timeToWait);
         } else {
@@ -52,13 +52,19 @@ client.on("message", async message => {
     sendSpamMessage();
   }
 
-  if (command === "prune") {
-    message.channel.fetchMessages()
-    .then(messages => {
-      let message_array = messages.array();
-      message_array.length = 2;
-      message_array.map(msg => msg.delete().catch(O_o => {}));
-     });
-
+  /*if (command === "prune") {
+    setTimeout(prune, 1000); // Theoretically waits long enough to avoid 10008 error
+    function prune() {
+      // IDEA: Only delete messages sent by current user? Use other bot validation...
+      message.channel.fetchMessages()
+      .then(messages => {
+        let message_array = messages.array();
+        message_array.length = 2;
+        message_array.map(msg => msg.delete().catch(console.log)); //.error
+       })
+      .catch(console.log); //.error
+    }
+  }*/
+});
 
 client.login(process.env.B0T_T0KEN);
