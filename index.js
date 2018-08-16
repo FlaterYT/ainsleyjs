@@ -11,7 +11,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if(message.content === "ainsley") {
     message.channel.send("Would you like me to give your meat a good ol rub?");
-      if (message.content.startsWith("yes")) {
+  if (message.content.startsWith("yes")) {
     message.channel.send("🍆 Ok I am giving your meat a good ol rub, this will be the best orgasm you will ever have! 🍆");
   } else
   if (message.content.startsWith("no")) {
