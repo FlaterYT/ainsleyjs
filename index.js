@@ -3,7 +3,10 @@ const client = new Discord.Client();
 const config = require('./config.json');
 client.config = config;
 
-console.log("Ready to level up!");
+client.on("ready", () => {
+  client.user.setGame("Socking my nan");
+  console.log("Ready to level up!")
+});
 
 client.on("message", async message => {
   const prefix = config.prefix;
