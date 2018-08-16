@@ -51,10 +51,7 @@ client.on("message", async message => {
     message.delete().catch(O_o=>{})
     sendSpamMessage();
       }
-    }
-  
-      client.user.setPresence( { game: {name: 'Socking my nan', type: 0 }});
- 
+    } 
 });
 
 client.login(process.env.B0T_T0KEN);
