@@ -146,7 +146,8 @@ client.on("message", async message => {
         // random sentence by pulling words from a dictionary file, or to just send a random
         // arrangement of characters and integers. Doing something like this may help prevent
         // future bots from detecting that you sent a spam message.
-        message.channel.send("anal is myth");
+        message.channel.send("hm");
+        message.react('🤔');	      
 
         if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
