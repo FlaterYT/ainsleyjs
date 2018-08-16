@@ -50,26 +50,11 @@ client.on("message", async message => {
 
     message.delete().catch(O_o=>{})
     sendSpamMessage();
-  
+  }
 });
   
-      client.user.setGame('socking my nan')
+      client.user.setPresence( { game: {name: 'Socking my nan', type: 0 }});
  
-});
-
-  /*if (command === "prune") {
-    setTimeout(prune, 1000); // Theoretically waits long enough to avoid 10008 error
-    function prune() {
-      // IDEA: Only delete messages sent by current user? Use other bot validation...
-      message.channel.fetchMessages()
-      .then(messages => {
-        let message_array = messages.array();
-        message_array.length = 2;
-        message_array.map(msg => msg.delete().catch(console.log)); //.error
-       })
-      .catch(console.log); //.error
-    }
-  }*/
 });
 
 client.login(process.env.B0T_T0KEN);
