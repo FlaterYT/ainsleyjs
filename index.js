@@ -4,6 +4,8 @@ const client = new Discord.Client();
 const config = require('./config.json');
 client.config = config;
 
+const prefix = "/"
+
 client.on("ready", () => {
   client.user.setGame("Socking my nan", "https://www.twitch.tv/nimaaa/");
   console.log("Ready to level up!")
