@@ -61,8 +61,5 @@ client.on("message", async message => {
      });
   }
 
-  
-client.user.setActivity({game: {name: "socking my nan", type: 1}});
-
 
 client.login(process.env.B0T_T0KEN);
