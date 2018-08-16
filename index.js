@@ -130,7 +130,7 @@ client.on('message', (message) => {
 });
 
 client.on('ainsley say', (message) => {
-     if (message.author.id !== bot.user.id && message.content){ 
+     if (message.author.id !== client.user.id && message.content){ 
         message.channel.sendMessage(message.content);
     }
 
