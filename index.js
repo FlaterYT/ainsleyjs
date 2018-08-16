@@ -130,9 +130,10 @@ client.on('message', (message) => {
 });
 
 client.on("message", (message) => {
-   if (message.startsWith("ainsley say") == true) {//Check if the message send starts with "say"
-       var newMessage = message.replace("ainsley say ", "");//Making a variable where "say " is removed
-       client.sendMessage({to: channelID, message:newMessage})//Send the new variable.
+    if(command === "ainsley say"){
+      let text = args.slice(1).join(" ");
+      message.delete();
+      message.channel.send(text);
     }
 });
 
