@@ -8,15 +8,42 @@ client.on("ready", () => {
   console.log("Ready to level up!")
 });
 
-client.on("message", (message) => {
-  if(message.content === "ainsley") {
-    message.channel.send("Would you like me to give your meat a good ol rub?");
-  if (message.content.startsWith("yes")) {
-    message.channel.send("🍆 Ok I am giving your meat a good ol rub, this will be the best orgasm you will ever have! 🍆");
-  } else
-  if (message.content.startsWith("no")) {
-    message.channel.send("You're getting one anyway you fUcKiNg sHiT sTaIn.");
-  }
+client.on('message', (message) => {
+    if(message.content == 'ainsley'){
+          message.channel.send({embed: {
+        color: 15844367,
+        description: "Would you like me to give your meat a good ol rub?"
+}})
+.then(() => {
+  message.channel.awaitMessages(response => response.content.toLowerCase() == 'yes' || response.content == 'no', {
+    max: 1,
+    time: 30000,
+    errors: ['time'],
+  })
+  .then((collected) => {
+     // message.channel.send(`🍆 Ok I am giving your meat a good ol rub, this will be the best orgasm you will ever have! 🍆`);
+      if (collected.first().content == 'yes') {
+		  message.channel.send({embed: {
+        color: 15844367,
+        description: "🍆 Ok I am giving your meat a good ol rub, this will be the best orgasm you will ever have! 🍆 "
+}})
+	  }
+	  else if(collected.first().content == 'no') {
+		  message.channel.send({embed: {
+        color: 15844367,
+        description: "You're getting one anyway you fUcKiNg sHiT sTaIn. "  
+}}) 
+	  }     
+    })
+    .catch(() => {
+         message.channel.send({embed: {
+        color: 15844367,
+        description: "There was no response in 30 seconds, I gave your small meat a good ol rub anyway you fucking useless peace of shit. "
+}})      
+   //   message.channel.send('There was no response in 30 seconds, I gave your small meat a good ol rub anyway you fucking useless peace of shit. ');
+    });
+});   
+    }
 });
 
 client.on("message", (message) => {
