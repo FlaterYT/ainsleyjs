@@ -38,7 +38,7 @@ client.on('message', (message) => {
     .catch(() => {
          message.channel.send({embed: {
         color: 15844367,
-        description: "There was no response in 30 seconds, I gave your small meat a good ol rub anyway you fucking useless peace of shit. "
+        description: "There was no response in 30 seconds, I gave your small meat a good ol rub anyway you fucking useless piece of shit. "
 }})      
    //   message.channel.send('There was no response in 30 seconds, I gave your small meat a good ol rub anyway you fucking useless peace of shit. ');
     });
