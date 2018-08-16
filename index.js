@@ -130,19 +130,19 @@ client.on('message', (message) => {
     }
 });
 
-Client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", member => {
    member.guild.defaultChannel.send("Welcome to: " + member.guild.name + " Hope you enjoy it here")
 });
 
-Client.on("guildMemberRemove", member => {
+client.on("guildMemberRemove", member => {
    member.guild.defaultChannel.send("Goodbye: " + member.user.username + " from " + member.guild.name)
 });
 
-Client.on("guildCreate", guild => {
+client.on("guildCreate", guild => {
 	console.log("Some one added the test bot to a server created by: " + guild.owner.user.username)
 });
 
-Client.on("message", async (message) => {
+client.on("message", async (message) => {
 	if (message.author.bot) return;
 	if (!message.content.startsWith(prefix)) return;
 	
