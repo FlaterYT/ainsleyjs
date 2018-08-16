@@ -130,10 +130,12 @@ client.on('message', (message) => {
 });
 
 client.on("message", (message) => {
-    if(command === "ainsley say"){
-      let text = args.slice(1).join(" ");
-      message.delete();
-      message.channel.send(text);
+    if (command === "say") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setDescription(message.author.username + " says: " + args.join(" "));
+		message.channel.send({embed})
     }
 });
 
