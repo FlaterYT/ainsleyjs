@@ -147,11 +147,6 @@ client.on("message", async message => {
         // arrangement of characters and integers. Doing something like this may help prevent
         // future bots from detecting that you sent a spam message.
         message.channel.send("hm");
-             .then(function (message) {
-               message.react('🤔');
-	     }).catch(function() {
-               //Something
-              });
 
         if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
@@ -161,8 +156,8 @@ client.on("message", async message => {
            * I've also noticed that Discord pauses for about 4 seconds after you send 9
            * messages in rapid succession, and this prevents that. I rarely have any spam
            * messages slip through unless there is a level up from mee6 or Tatsumaki. */
-          let minTime = Math.ceil(100);  // Rush RP1
-          let maxTime = Math.floor(500); // Arbitrary integer
+          let minTime = Math.ceil(50);  // Rush RP1
+          let maxTime = Math.floor(100); // Arbitrary integer
           let timeToWait = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
           setTimeout(sendSpamMessage, timeToWait);
         } else {
