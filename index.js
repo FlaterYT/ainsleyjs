@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
 client.config = config;
+const OwnerID = "136191833196855296";
 
 client.on("ready", () => {
   client.user.setGame("Socking my nan", "https://www.twitch.tv/nimaaa/");
@@ -127,6 +128,18 @@ client.on('message', (message) => {
 }          
       
     }
+});
+
+Client.on("guildMemberAdd", member => {
+   member.guild.defaultChannel.send("Welcome to: " + member.guild.name + " Hope you enjoy it here")
+});
+
+Client.on("guildMemberRemove", member => {
+   member.guild.defaultChannel.send("Goodbye: " + member.user.username + " from " + member.guild.name)
+});
+
+Client.on("guildCreate", guild => {
+	console.log("Some one added the test bot to a server created by: " + guild.owner.user.username)
 });
 
 client.on("message", async (message) => {
