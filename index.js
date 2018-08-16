@@ -129,12 +129,6 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', (message) => {  
-        if (message.content === "ainsley say" && message.content){ 
-           message.channel.sendMessage(message.content);
-  }
-});
-
 client.on("message", async message => {
   const prefix = config.prefix;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
