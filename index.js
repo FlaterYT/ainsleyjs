@@ -59,7 +59,6 @@ client.on("message", async message => {
       message_array.length = 2;
       message_array.map(msg => msg.delete().catch(O_o => {}));
      });
-  };
 
 
 client.login(process.env.B0T_T0KEN);
