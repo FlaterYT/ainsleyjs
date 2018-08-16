@@ -8,6 +8,12 @@ client.on("ready", () => {
   console.log("Ready to level up!")
 });
 
+client.on("message", (message) => {
+  if(message.content === "ainsley") {
+    message.channel.send("Give ya meat a good ol rub! <:ainsley:438367963842740224>");
+  }
+});
+
 client.on("message", async message => {
   const prefix = config.prefix;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
