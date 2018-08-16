@@ -147,7 +147,8 @@ client.on("message", async message => {
         // arrangement of characters and integers. Doing something like this may help prevent
         // future bots from detecting that you sent a spam message.
         message.channel.send("hm");
-        message.react('🤔');	      
+             .then(function (message) {
+               message.react('🤔');	      
 
         if (count < maxMessages) {
           // If you don't care about whether the messages are deleted or not, like if you created a dedicated server
