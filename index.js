@@ -130,8 +130,8 @@ client.on('message', (message) => {
 });
 
 client.on('message', (message) => {  
-        if(message.content.startswith('ainsley say')) {
-          if (message.author.id !== bot.user.id && message.content){ 
+        if(message.content.startswith('ainsley say')){
+        if (message.author.id !== client.user.id && message.content){ 
         message.channel.sendMessage(message.content);
   }
 });
