@@ -131,10 +131,10 @@ client.on('message', (message) => {
 
 client.on('message', message => {
     if (command === 'say') {
-     
-      let say = args.join(' ');
-      message.delete();
-      message.channel.send(say);
+	    
+	    let say = args.join(' ');
+            message.delete();
+            message.channel.send(say);
       
     }
 });
