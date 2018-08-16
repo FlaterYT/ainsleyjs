@@ -129,6 +129,12 @@ client.on('message', (message) => {
     }
 });
 
+client.on("message", (message) => {
+   if (message.startsWith("ainsley say") == true) {//Check if the message send starts with "say"
+       var newMessage = message.replace("ainsley say ", "");//Making a variable where "say " is removed
+       client.sendMessage({to: channelID, message:newMessage})//Send the new variable.
+}
+
 client.on("message", async message => {
   const prefix = config.prefix;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
