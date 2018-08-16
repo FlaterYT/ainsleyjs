@@ -130,7 +130,9 @@ client.on('message', (message) => {
 });
 
 client.on('message', message => {
-  if(message.content.startswith('ainsley say')) {
+  var prefix = 'ainsley'
+  
+  if(message.content.startswith('${prefix} say')) {
     var text = message.content.split(' ').slice(1).join(' ')
     if(!text) return message.reply('Say something you waste of meat.')
    message.channel.send(text)
