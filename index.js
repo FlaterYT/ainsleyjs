@@ -129,7 +129,7 @@ client.on('message', (message) => {
     }
 });
 
-client.on("message", (message) => {
+client.on("message", async (message) => {
     if (command === "say") {
 		message.delete()
         const embed = new Discord.RichEmbed()
