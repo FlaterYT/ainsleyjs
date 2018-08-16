@@ -1,50 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require('./config.json');
-const emojiName = "ash"; //This only works with custom emojis atm
-const messageContent = "why";
 client.config = config;
 
 client.on("ready", () => {
   client.user.setGame("Socking my nan", "https://www.twitch.tv/nimaaa/");
   console.log("Ready to level up!")
-});
-
-//Looks for emoji and registers a message handler
-function registerListeners() {
-    let emoji = client.emojis.find("name", emojiName);
-    if (emoji === null) {
-        console.log(`Unable to find emoji with name '${emojiName}'`);
-        process.exit(0);
-        return;
-    }
-    client.on("message", message => {
-        if (message.content === messageContent) {
-            message.react(emoji).then(() => {
-                console.log("Reacted to message")
-            }).catch(reason => {
-                console.log(`Problem while reacting to message: ${reason}`);
-            });
-        }
-    });
-}
-
-//On process exit stuff
-const cleanupFunc = async (code) => {
-    await client.destroy();
-    process.exit(code);
-};
-
-process.once("exit", cleanupFunc);
-process.once("SIGINT", cleanupFunc);
-process.once("SIGTERM", cleanupFunc);
-process.once("unhandledRejection", (async (reason, promise) => {
-    console.log("Unhandled promise rejection at: Promise", promise, "reason:", reason);
-    await cleanupFunc(0);
-}));
-process.once("uncaughtException", async error => {
-    console.log(error.stack);
-    await cleanupFunc(0);
 });
 
 client.on("message", async message => {
