@@ -129,6 +129,13 @@ client.on('message', (message) => {
     }
 });
 
+client.on('ainsley say', (message) => {
+     if (message.author.id !== bot.user.id && message.content){ 
+        message.channel.sendMessage(message.content);
+    }
+
+});
+
 client.on("message", async message => {
   const prefix = config.prefix;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
