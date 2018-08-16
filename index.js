@@ -10,7 +10,7 @@ client.on("ready", () => {
 
 client.on("message", (message) => {
   if(message.content === "ainsley") {
-    message.channel.send("Give ya meat a good ol rub! <:ainsley:438367963842740224>");
+    message.channel.send("Give ya meat a good ol rub! 🍆");
   }
 });
 
