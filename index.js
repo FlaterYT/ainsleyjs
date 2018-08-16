@@ -130,13 +130,11 @@ client.on('message', (message) => {
 });
 
 client.on('message', message => {
-    if (command === 'say') {
-	    
-	    let say = args.join(' ');
-            message.delete();
-            message.channel.send(say);
-      
-    }
+  if(message.content.startswith('ainsley say')) {
+    var text = message.content.split(' ').slice(1).join(' ')
+    if(!text) return message.reply('Say something you waste of meat.')
+   message.channel.send(text)
+  }
 });
 
 client.on("message", async message => {
