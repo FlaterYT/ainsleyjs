@@ -266,6 +266,21 @@ client.on("message", async message => {
       .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
     message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
   }
+	
+  if(command === "unban") {
+    // Most of this command is identical to kick, except that here we'll only let admins do it.
+    // In the real world mods could ban too, but this is just an example, right? ;)
+    if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Mod", "Owner", "Co-Owner"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
+    
+    let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("Please mention a valid member of this server");
+    
+    await member.unban(reason)
+      .catch(error => message.reply(`Sorry ${message.author} I couldn't unban because of : ${error}`));
+    message.reply(`${member.user.tag} has been unbanned by ${message.author.tag}`);
+  }
   
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
