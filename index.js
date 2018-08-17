@@ -157,7 +157,7 @@ client.on('guildMemberAdd', member => {
         .addField(':bust_in_silhouette: | name : ', `${member}`)
         .addField(':microphone2: | Welcome!', `Welcome to the server, ${member} prepare your anus!`)
         .addField(':id: | User :', "**[" + `${member.id}` + "]**")
-        .addField(':family_mwgb: | Your are the member', `${member.guild.memberCount}`)
+        .addField(':family_mwgb: | Your are member #', `${member.guild.memberCount}`)
         .addField("Name", `<@` + `${member.id}` + `>`, true)
         .addField('Server', `${member.guild.name}`, true )
         .setFooter(`**${member.guild.name}**`)
@@ -182,7 +182,7 @@ client.on('guildMemberRemove', member => {
         .addField('Name:', `${member}`)
         .addField('Has Left the Server', ';(')
         .addField('Bye', 'We will never miss you asshole!')
-        .addField('The server now as', `${member.guild.memberCount}` + " members")
+        .addField('The server now has', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
         .setTimestamp()
 
