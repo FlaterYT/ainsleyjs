@@ -297,10 +297,13 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 });
 
-client.on('message', (message) => {
+bot.on('message', (message) => {
     if(message.content == 'ainsley help'){
         message.channel.send({"embed": {
-    "color": 15844367
+    "color": 15844367,
+    "timestamp": (new Date().getTime() - message.createdTimestamp),
+    "footer": {
+      "text": "Help Command Requested at:"
     },
     "thumbnail": {
       "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png?v=1"
