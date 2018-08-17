@@ -253,7 +253,7 @@ client.on("message", async message => {
     if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Mod", "Owner", "Co-Owner"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
-    let member = message.mentions.members.first();
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
       return message.reply("Please mention a valid member of this server");
     if(!member.bannable) 
@@ -273,7 +273,7 @@ client.on("message", async message => {
     if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Mod", "Owner", "Co-Owner"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
-    let member = message.mentions.members.first();
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
       return message.reply("Please mention a valid member of this server");
     
