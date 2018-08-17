@@ -9,6 +9,9 @@ client.on("ready", () => {
 });
 
 client.on('message', (message) => {
+	
+    msg = message.content.toLowerCase();
+	
     if(message.content == 'ainsley'){
           message.channel.send({embed: {
         color: 15844367,
