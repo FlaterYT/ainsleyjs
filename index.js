@@ -298,40 +298,5 @@ client.on("message", async message => {
 }})
 }
 });
-
-client.on('message', (message) => {
-    if(message.content == "ainsley help"){
-        message.channel.send({"embed": {
-    "color": 15844367,
-    "footer": {
-      "text": "Help Command Requested at:"
-    },
-    "thumbnail": {
-      "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png?v=1"
-    },
-    "author": {
-      "name": "Ainsley Bot Commands",
-      "url": "https://discordapp.com",
-      "icon_url": "https://cdn.discordapp.com/avatars/479878802000969728/49c7f16bc2c32f62679d3d22653dfeb5.png"
-    },
-    "fields": [
-      {
-        "name": "**Fun**",
-        "value": "ainsley, meme, say "
-      },
-      {
-        "name": "**Moderation**",
-        "value": "ping, kick, ban, purge "
-      }
-
-    ]
-  }
-}
-        
-        
-        
-        );   
-    }
-});
 	    
 client.login(process.env.B0T_T0KEN);
