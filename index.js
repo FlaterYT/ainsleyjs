@@ -147,6 +147,15 @@ client.on('message', (message) => {
     }
 });
 
+client.on('message', (message) => {
+    if(message.content == 'ainsley invite'){
+       var text11 = "[Click Here](https://discordapp.com/oauth2/authorize?&client_id=479878802000969728&scope=bot&permissions=8) to invite me to your server.";
+        message.channel.send({embed: {
+        color: 15844367,
+        description: text11
+		
+});
+
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', 'welcome', 'welcome-leave');
     let memberavatar = member.user.avatarURL
