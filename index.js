@@ -273,8 +273,8 @@ client.on("message", async message => {
     const deleteCount = parseInt(args[0], 10);
     
     // Ooooh nice, combined conditions. <3
-    if(!deleteCount || deleteCount < 1 || deleteCount > 1000)
-      return message.reply("Please provide a number between 1 and 1000 for the number of messages to delete");
+    if(!deleteCount || deleteCount < 1 || deleteCount > 250)
+      return message.reply("Please provide a number between 1 and 250 for the number of messages to delete");
     
     // So we get our messages, and delete them. Simple enough, right?
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
