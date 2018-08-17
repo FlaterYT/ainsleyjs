@@ -180,7 +180,7 @@ client.on('guildMemberRemove', member => {
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField('Name:', `${member}`)
-        .addField('Has Let the Server', ';(')
+        .addField('Has Left the Server', ';(')
         .addField('Bye', 'We will never miss you asshole!')
         .addField('The server now as', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
