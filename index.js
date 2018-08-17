@@ -276,8 +276,10 @@ client.on("message", async message => {
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
       return message.reply("Please mention a valid User ID");
+    if(!member.unbannable)
+       return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");    
     
-    await member.unban(member)
+    await member.unban(reason)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't unban because of : ${error}`));
     message.reply(`${member.user.tag} has been unbanned by ${message.author.tag}`);
   }
