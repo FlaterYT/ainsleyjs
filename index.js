@@ -4,7 +4,7 @@ const config = require('./config.json');
 client.config = config;
 
 client.on("ready", () => {
-  client.user.setActivity("New Users", {type: 2});
+  client.user.setActivity("ASMR Porn", {type: 2});
   console.log("Ready to level up!")
 });
 
