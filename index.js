@@ -71,7 +71,7 @@ client.on("message", (message) => {
 });
 
 client.on('message', (message) => {
-    if(message.content == 'meme'){
+    if(message.content == 'ainsley meme'){
         var meme = Math.floor((Math.random() * 11) + 1);
        
       
