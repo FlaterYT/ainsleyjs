@@ -297,11 +297,10 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 });
 
-bot.on('message', (message) => {
+client.on('message', (message) => {
     if(message.content == 'ainsley help'){
         message.channel.send({"embed": {
     "color": 15844367,
-    "timestamp": (new Date().getTime() - message.createdTimestamp),
     "footer": {
       "text": "Help Command Requested at:"
     },
