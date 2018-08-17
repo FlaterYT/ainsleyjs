@@ -4,7 +4,7 @@ const config = require('./config.json');
 client.config = config;
 
 client.on("ready", () => {
-  client.user.setGame("Socking my nan", "https://www.twitch.tv/nimaaa/");
+  client.user.setActivity("New Users", {type: 2});
   console.log("Ready to level up!")
 });
 
