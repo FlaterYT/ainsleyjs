@@ -12,7 +12,7 @@ client.on('message', (message) => {
 	
     msg = message.content.toLowerCase();
 	
-    if(msg.content == 'ainsley'){
+    if(message.content == 'ainsley'){
           message.channel.send({embed: {
         color: 15844367,
         description: "Would you like me to give your meat a good ol rub?"
