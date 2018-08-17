@@ -313,11 +313,11 @@ client.on('message', (message) => {
     "fields": [
       {
         "name": "**Fun**",
-        "value": "*ainsley, meme, say*"
+        "value": "ainsley, meme, say"
       },
       {
         "name": "**Moderation**",
-        "value": "*ping, kick, ban, purge*"
+        "value": "ping, kick, ban, purge"
       }
 
     ]
