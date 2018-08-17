@@ -313,6 +313,7 @@ client.on('message', (message) => {
         message.channel.send({embed: {
     color: 15844367,
     footer: {
+    text: "Bot made by Flater#0420"
     },
     thumbnail: {
       "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png"
