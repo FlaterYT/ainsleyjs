@@ -309,7 +309,7 @@ client.on('message', (message) => {
     },
     author: {
       name: "Ainsley Bot Commands",
-      url: "https://discordapp.com",
+      url: "https://www.youtube.com/watch?v=u2X7GCUhZJs",
       icon_url: "https://images.encyclopediadramatica.rs/thumb/1/11/AinsleyFace.png/150px-AinsleyFace.png"
     },
     fields: [
