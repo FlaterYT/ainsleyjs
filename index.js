@@ -303,7 +303,7 @@ client.on('message', (message) => {
     "color": 15844367,
     },
     "thumbnail": {
-      "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png"
+      "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png?v=1"
     },
     "author": {
       "name": "Ainsley Bot Commands",
