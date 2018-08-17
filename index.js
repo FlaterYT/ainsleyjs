@@ -329,6 +329,10 @@ client.on('message', (message) => {
       {
         name: "**Moderation**",
         value: "ping, kick, ban, purge"	        
+      },
+      {
+        name: "**Other**",
+        value: "invite"	
       }
 
     ]
