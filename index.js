@@ -308,7 +308,7 @@ client.on('message', (message) => {
     "author": {
       "name": "Ainsley Bot Commands",
       "url": "https://discordapp.com",
-      "icon_url": "https://images.encyclopediadramatica.rs/thumb/1/11/AinsleyFace.png/150px-AinsleyFace.png"
+      "icon_url": "https://cdn.discordapp.com/avatars/479878802000969728/49c7f16bc2c32f62679d3d22653dfeb5.png"
     },
     "fields": [
       {
