@@ -273,16 +273,14 @@ client.on("message", async message => {
     if(!message.member.roles.some(r=>["Administrator", "Moderator", "Admin", "Mod", "Owner", "Co-Owner"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
-    message.guild.unban(user);
-    if(!member)
-      return message.reply("Please mention a valid User ID");
-    if(!member.unbannable)
-       return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");    
-    
-    await member.unban(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't unban because of : ${error}`));
-    message.reply(`${member.user.tag} has been unbanned by ${message.author.tag}`);
-  }
+                client.unbanMember(cleanID(mSplit[2]), message.channel.server.id, function (error) {
+                    if (error) {
+                        client.reply(message, error);
+                        return;
+                    }
+                    client.reply(message, "I've unbanned: " + mSplit[2] + " from: " + message.channel.server.id);
+                });
+            }
   
   if(command === "purge") {
     // This command removes all messages from all users in the channel, up to 100.
