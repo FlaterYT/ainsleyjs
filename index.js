@@ -270,7 +270,7 @@ client.on("message", async message => {
       return message.reply("Sorry, you don't have permissions to use this!");
     
     // get the delete count, as an actual number.
-    const deleteCount = parseInt(args[0], 10);
+    const deleteCount = parseInt(args[0], 30);
     
     // Ooooh nice, combined conditions. <3
     if(!deleteCount || deleteCount < 2 || deleteCount > 250)
