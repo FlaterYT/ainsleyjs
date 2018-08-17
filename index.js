@@ -300,7 +300,7 @@ client.on("message", async message => {
 });
 
 client.on('message', (message) => {
-    if(message.content == 'ainsley help'){
+    if(message.content == "ainsley help"){
         message.channel.send({"embed": {
     "color": 15844367,
     "footer": {
