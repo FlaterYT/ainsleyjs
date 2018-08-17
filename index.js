@@ -129,10 +129,6 @@ client.on('message', (message) => {
     }
 });
 
-client.on('ready', () => {
-    console.log("Turning On Bot")
-});
-
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', 'general');
     let memberavatar = member.user.avatarURL
@@ -175,7 +171,7 @@ client.on('guildMemberRemove', member => {
         channel.sendEmbed(embed);
 });
 
-clien.on('guildMemberRemove', member => {
+client.on('guildMemberRemove', member => {
     console.log(`${member}` + "has left" + `${member.guild.name}` + "Sending leave message now")
     console.log("Leave Message Sent")
 });
