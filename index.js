@@ -275,10 +275,9 @@ client.on("message", async message => {
     
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
-      return message.reply("Please mention a valid member of this server");
-    message.guild.unban(user);
+      return message.reply("Please mention a valid User ID");
     
-    await member.unban(reason)
+    await member.unban(member)
       .catch(error => message.reply(`Sorry ${message.author} I couldn't unban because of : ${error}`));
     message.reply(`${member.user.tag} has been unbanned by ${message.author.tag}`);
   }
