@@ -300,7 +300,7 @@ client.on("message", async message => {
 client.on('message', (message) => {
     if(message.content == 'ainsley help'){
         message.channel.send({"embed": {
-    "color": 15844367,
+    "color": 15844367
     },
     "thumbnail": {
       "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png?v=1"
