@@ -153,7 +153,8 @@ client.on('message', (message) => {
         message.channel.send({embed: {
         color: 15844367,
         description: text11
-		
+}});
+    }
 });
 
 client.on('guildMemberAdd', member => {
