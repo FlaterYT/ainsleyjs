@@ -295,19 +295,16 @@ client.on("message", async message => {
     const fetched = await message.channel.fetchMessages({limit: deleteCount});
     message.channel.bulkDelete(fetched)
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
-  }
 });
 
 client.on('message', (message) => {
     if(message.content == 'ainsley help'){
         message.channel.send({"embed": {
     "color": 15844367,
-    "footer": {
     },
     "thumbnail": {
       "url": "https://orig00.deviantart.net/6fdf/f/2014/117/9/2/ainsley_harriot_head_by_lacorocks-d7gacxq.png"
     },
-    "author": {
       "name": "Ainsley Bot Commands",
       "url": "https://discordapp.com",
       "icon_url": "https://images.encyclopediadramatica.rs/thumb/1/11/AinsleyFace.png/150px-AinsleyFace.png"
@@ -320,7 +317,7 @@ client.on('message', (message) => {
       {
         "name": "**Moderation**",
         "value": "*ping, kick, ban, purge*"
-  }
+	  }
 });
-
+	    
 client.login(process.env.B0T_T0KEN);
