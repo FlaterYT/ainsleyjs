@@ -163,7 +163,7 @@ client.on('guildMemberRemove', member => {
         .setThumbnail(memberavatar)
         .addField('Name:', `${member}`)
         .addField('Has Let the Server', ';(')
-        .addField('Bye Bye :(', 'We will all miss you!')
+        .addField('Bye', 'We will never miss you asshole!')
         .addField('The server now as', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
         .setTimestamp()
