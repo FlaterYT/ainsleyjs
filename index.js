@@ -263,9 +263,7 @@ client.on("message", async message => {
     .addField("Time", message.createdAt)
     .addField("Reason", kReason);
 	  
-     await member.kick(reason)
-       .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-     message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
+    message.guild.member(kUser).kick(kReason);
 
 
     return;
