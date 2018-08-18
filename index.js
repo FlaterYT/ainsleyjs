@@ -263,8 +263,11 @@ client.on("message", async message => {
     .addField("Time", message.createdAt)
     .addField("Reason", kReason);
 	  
-    message.guild.member(kUser).kick(kReason);
+    let kickChannel = message.guild.channels.find(`name`, "general");
+    if(!kickChannel) return message.channel.send("Can't find general channel.");
 
+    message.guild.member(kUser).kick(kReason);
+    kickChannel.send(kickEmbed);
 
     return;
   }
@@ -286,8 +289,8 @@ client.on("message", async message => {
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
 
-    let incidentchannel = message.guild.channels.find(`name`, "incidents");
-    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+    let incidentchannel = message.guild.channels.find(`name`, "general");
+    if(!incidentchannel) return message.channel.send("Can't find general channel.");
 
     message.guild.member(bUser).ban(bReason);
     incidentchannel.send(banEmbed);
