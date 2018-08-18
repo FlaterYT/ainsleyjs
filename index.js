@@ -246,8 +246,10 @@ client.on("message", async message => {
     // This command must be limited to mods and admins. In this example we just hardcode the role names.
     // Please read on Array.some() to understand this bit: 
     // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
-    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return.message.reply("You don't have permissions.");
-    if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return.message.reply("I don't have permissions.");
+    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) )
+      return.message.reply("You don't have permissions.");
+    if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) )
+      return.message.reply("I don't have permissions.");
     
     // Let's first check if we have a member and if we can kick them!
     // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
@@ -273,8 +275,10 @@ client.on("message", async message => {
   if(command === "ban") {
     // Most of this command is identical to kick, except that here we'll only let admins do it.
     // In the real world mods could ban too, but this is just an example, right? ;)
-    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return.message.reply("You don't have permissions.");
-    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return.message.reply("I don't have permissions.");
+    if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) )
+      return.message.reply("You don't have permissions.");
+    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) )
+      return.message.reply("I don't have permissions.");
     
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
