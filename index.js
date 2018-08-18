@@ -2,11 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
 client.config = config;
-const Helper = require('./components/helper.js');
-const Queue = require('./components/queue.js');
-const TrackHelper = require('./components/trackhelper.js');
-const WordService = require('./components/wordservice.js');
-const WeatherService = require('./components/weatherservice.js');
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
