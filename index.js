@@ -211,6 +211,8 @@ client.on("message", async message => {
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
   if(message.author.bot) return;
+	
+  if(message.channel.type === "dm") return;
   
   // Also good practice to ignore any message that does not start with our prefix, 
   // which is set in the configuration file.
@@ -243,51 +245,86 @@ client.on("message", async message => {
   }
   
   if(command === "kick") {
-    // This command must be limited to mods and admins. In this example we just hardcode the role names.
-    // Please read on Array.some() to understand this bit: 
-    // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
+
+    //!kick @daeshan askin for it
+
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nope.");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    
-    // Let's first check if we have a member and if we can kick them!
-    // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
-    // We can also support getting the member by ID, which would be args[0]
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!member)
-      return message.reply("Please mention a valid member of this server");
-    if(!member.kickable) 
-      return message.reply("I cannot kick this user! Do they have a higher role? Do I have kick permissions?");
-    
-    // slice(1) removes the first part, which here should be the user mention or ID
-    // join(' ') takes all the various parts to make it a single string.
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided";
-    
-    // Now, time for a swift kick in the nuts!
-    await member.kick(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
-    message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
 
+    let kickEmbed = new Discord.RichEmbed()
+    .setDescription("~Kick~")
+    .setColor("#e56b00")
+    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked In", message.channel)
+    .addField("Tiime", message.createdAt)
+    .addField("Reason", kReason);
+
+    let kickChannel = message.guild.channels.find(`name`, "incidents");
+    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+
+    message.guild.member(kUser).kick(kReason);
+    kickChannel.send(kickEmbed);
+
+    return;
   }
-  
+
   if(command === "ban") {
-    // Most of this command is identical to kick, except that here we'll only let admins do it.
-    // In the real world mods could ban too, but this is just an example, right? ;)
+
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!bUser) return message.channel.send("Can't find user!");
+    let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Nope.");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
-    if(!member)
-      return message.reply("Please mention a valid member of this server");
-    if(!member.bannable) 
-      return message.reply("I cannot ban this user! Do they have a higher role? Do I have ban permissions?");
 
-    let reason = args.slice(1).join(' ');
-    if(!reason) reason = "No reason provided";
-    
-    await member.ban(reason)
-      .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-    message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+    let banEmbed = new Discord.RichEmbed()
+    .setDescription("~Ban~")
+    .setColor("#bc0000")
+    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Banned In", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", bReason);
+
+    let incidentchannel = message.guild.channels.find(`name`, "incidents");
+    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+
+    message.guild.member(bUser).ban(bReason);
+    incidentchannel.send(banEmbed);
+
+
+    return;
+  }
+
+
+  if(command === "report") {
+
+    //!report @ned this is the reason
+
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!rUser) return message.channel.send("Couldn't find user.");
+    let rreason = args.join(" ").slice(22);
+
+    let reportEmbed = new Discord.RichEmbed()
+    .setDescription("Reports")
+    .setColor("#15f153")
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+    .addField("Channel", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", rreason);
+
+    let reportschannel = message.guild.channels.find(`name`, "reports");
+    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+
+
+    message.delete().catch(O_o=>{});
+    reportschannel.send(reportEmbed);
+
+    return;
   }
   
   if(command === "purge") {
