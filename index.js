@@ -2,6 +2,24 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
 client.config = config;
+const Limiter = require("./limit.js");
+let limit = new Limiter(15000);
+const fs = require("fs");
+
+const clockEmoji = ["🕐", "🕑", "🕒", "🕓", "🕔", "🕕", "🕖", "🕗", "🕘", "🕙", "🕚", "🕛", "🕜", "🕝", "🕞", "🕟", "🕠", "🕡", "🕢", "🕣", "🕤", "🕥", "🕦", "🕧"];
+
+const re = /^(\>\s?r+o+ll+|\>\s?s+h+a+k+e+)(?:\s(.+))?/gim; // Regex to find out if a user types ">roll"
+let responses;
+fs.readFile('./responses.txt', "utf8", function(err, data) { // Allows custom responses
+	if(err) {
+		console.log("Can't read or find responses.txt, setting defaults");
+		responses = ["It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely",
+					"You may rely on it", "As I see it, yes", "Most Likely", "Outlook good", "Yes",
+					"Signs point to yes", "Reply hazy try again", "Ask again later"];
+	} else {
+		responses = data.split("\n"); // Responses are each individual line
+	}
+});
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
