@@ -278,7 +278,7 @@ client.on("message", async message => {
     if(!bUser) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Nope.");
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be banned!");
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
