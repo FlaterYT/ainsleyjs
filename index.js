@@ -308,8 +308,8 @@ client.on("message", async message => {
   }
 });
 
-client.on("message", function(message){
-	if (message.content === "8ball") {
+client.on("message", (message) => {
+	if (message.content == "8ball"){
     	var sayings = ["It is certain",
 										"It is most certainly so",
 										"Without a doubt",
