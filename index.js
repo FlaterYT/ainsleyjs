@@ -329,7 +329,6 @@ client.on("message", async message => {
 client.on('ready', () => {
   	console.log(`Logged in as ${client.user.tag}!`);
 	console.log("Available responses: " + responses.length);
-	client.user.setGame(">roll or >shake");
 });
 
 client.on('message', msg => {
