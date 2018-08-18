@@ -308,32 +308,30 @@ client.on("message", async message => {
   }
 });
 
-client.on("message", (message) => {
-	if (message.content == "8ball"){
-    	var sayings = ["It is certain",
-										"It is most certainly so",
-										"Without a doubt",
-										"Yes, definitely",
-										"You may rely on it",
-										"As I see it, yes",
-										"Most likely",
-										"Outlook good",
-										"Yes",
-										"Penis points to yes",
-										"Reply hazy try again",
-										"Ask again later",
-										"Better not tell you now",
-										"Cannot predict now",
-										"Concentrate and ask again",
-										"Don't count on it",
-										"My reply is no",
-										"My sources say no",
-										"Outlook not so good",
-										"Very doubtful"];
+client.on('ready', () => {
+  	console.log(`Logged in as ${client.user.tag}!`);
+	console.log("Available responses: " + responses.length);
+	client.user.setGame(">roll or >shake");
+});
 
-			var result = Math.floor((Math.random() * sayings.length) + 0);
-			client.reply(message, sayings[result]);
-  }
+client.on('message', msg => {
+	let matches = re.exec(msg.content);
+
+  	if (!msg.author.bot && matches) {
+  		if(limit && limit.exists(msg.author.id)) { // Checks if a usage limit is in place
+  			for(let i = 0; i < Math.floor(Math.random()*5); i++) {
+				msg.react(clockEmoji[Math.floor(Math.random()*clockEmoji.length)]);
+  			}
+		} else {
+			var rand = Math.floor(Math.random()*responses.length);
+	  		if(matches[2]) {
+	  			msg.reply("You asked: \"" + matches[2] + "\" - " + responses[rand]);
+	  		} else {
+	  			msg.reply(responses[rand]);
+	  		}
+	  		limit.add(msg.author.id);
+		}
+  	}
 });
 
 client.on('message', (message) => {
