@@ -260,8 +260,12 @@ client.on("message", async message => {
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
     .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
-    .addField("Tiime", message.createdAt)
+    .addField("Time", message.createdAt)
     .addField("Reason", kReason);
+	  
+     await member.kick(reason)
+       .catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
+     message.reply(`${member.user.tag} has been kicked by ${message.author.tag} because: ${reason}`);
 
 
     return;
