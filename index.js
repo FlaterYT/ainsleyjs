@@ -377,13 +377,13 @@ client.on("message", function(message) {
     var args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0].toLowerCase()) {
-            case "play":
+        case "play":
             if (!args[1]) {
                 message.channel.sendMessage("Please provide a link");
                 return;
             }
             
-            if (!message.member.voiceChannel)
+            if (!message.member.voiceChannel) {
                 message.channel.sendMessage("You must be in a voice channel");
                 return;
             }
