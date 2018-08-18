@@ -369,7 +369,15 @@ var servers = {};
 
 });
         
-        case "play":
+client.on("message", function(message) {
+    if (message.author.equals(client.user)) return;
+
+    if (!message.content.startsWith(PREFIX)) return;
+
+    var args = message.content.substring(PREFIX.length).split(" ");
+
+    switch (args[0].toLowerCase()) {
+            case "play":
             if (!args[1]) {
                 message.channel.sendMessage("Please provide a link");
                 return;
