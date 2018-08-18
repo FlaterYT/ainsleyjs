@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
-const { PREFIX, GOOGLE_API_KEY } = require
+const { PREFIX, GOOGLE_API_KEY } = require(true);
 client.config = config;
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
