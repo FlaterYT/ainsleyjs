@@ -302,7 +302,7 @@ client.on("message", async message => {
 }).catch(function(){
    message.member.ban(reason)
    console.log(`Unsuccessfully sent ban message to ${message.member.tag}`);
-
+});
 
     return;
   }
