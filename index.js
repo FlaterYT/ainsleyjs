@@ -296,13 +296,8 @@ client.on("message", async message => {
     let channel = message.guild.channels.find(`name`, "general");
     if(!channel) return message.channel.send("Can't find general channel.");
 
-    message.member.send(`Hi! You were banned from ${member.user.server} because: {reason}.`).then(function(){
-    message.member.ban(reason)
-    console.log(`Successfully sent ban message to ${message.member.tag}`);
-}).catch(function(){
-   message.member.ban(reason)
-   console.log(`Unsuccessfully sent ban message to ${message.member.tag}`);
-});
+    message.guild.member(member).ban(reason);
+    channel.send(embed);
 
     return;
   }
