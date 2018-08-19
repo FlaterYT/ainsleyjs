@@ -27,6 +27,7 @@ client.on("guildDelete", guild => {
 client.on('message', (message) => {
 	
     const args = message.content.slice(message.length).trim().split(/ +/g);
+    
     const command = args.shift().toLowerCase();
 	
     if(message.content == 'ainsley'){
