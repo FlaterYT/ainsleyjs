@@ -26,7 +26,8 @@ client.on("guildDelete", guild => {
 
 client.on('message', (message) => {
 	
-    msg = message.content.toLowerCase();
+    const args = message.content.slice(message.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
 	
     if(message.content == 'ainsley'){
           message.channel.send({embed: {
