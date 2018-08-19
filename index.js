@@ -254,7 +254,7 @@ client.on("message", async message => {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nope.");
     if(member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
 
-    let kickEmbed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setDescription("~Kick~")
     .setColor("#e56b00")
     .addField("Kicked User", `${member} with ID ${member.id}`)
@@ -267,7 +267,7 @@ client.on("message", async message => {
     if(!kickChannel) return message.channel.send("Can't find general channel.");
 
     message.guild.member(member).kick(reason);
-    kickChannel.send(kickEmbed);
+    kickChannel.send(embed);
 
     return;
   }
