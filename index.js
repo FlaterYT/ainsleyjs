@@ -297,10 +297,10 @@ client.on("message", async message => {
     if(!channel) return message.channel.send("Can't find general channel.");
 
     message.member.send(`Hi! You were banned from ${member.user.server} because: {reason}.`).then(function(){
-    message.member.ban(`Hi! You were banned from ${member.user.server} because: {reason}.`)
+    message.member.ban(reason)
     console.log(`Successfully sent ban message to ${message.member.tag}`);
 }).catch(function(){
-   message.member.ban(`Hi! You were banned from ${member.user.server} because: {reason}.`)
+   message.member.ban(reason)
    console.log(`Unsuccessfully sent ban message to ${message.member.tag}`);
 
 
