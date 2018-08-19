@@ -296,7 +296,7 @@ client.on("message", async message => {
     let channel = message.guild.channels.find(`name`, "general");
     if(!channel) return message.channel.send("Can't find general channel.");
 
-    message.member.send(reason).then(function(){
+    message.member.send(reason);
     message.guild.member(member).ban(reason);
     channel.send(embed);
 
