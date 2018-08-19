@@ -315,7 +315,7 @@ client.on("message", async message => {
     let embed = new Discord.RichEmbed()
     .setDescription("Reports")
     .setColor("#15f153")
-    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+    .addField("Reported User", `${member} with ID: ${member.id}`)
     .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
