@@ -279,9 +279,12 @@ client.on("message", async message => {
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
     let reason = args.join(" ").slice(1);
+    client.unbanReason = reason;
+    client.unbanAuth = message.author;
     if(!reason) reason = "No reason provided";
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You don't have permission to use this command.");
     if(member.hasPermission("BAN_MEMBERS")) return message.channel.send("That person can't be banned!");
+    message.guild.unban(user);
 
     let embed = new Discord.RichEmbed()
     .setDescription("~Ban~")
