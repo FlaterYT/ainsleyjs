@@ -250,8 +250,8 @@ client.on("message", async message => {
 
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
-    let reason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nope.");
+    let reason = args.slice(1).join(' ');
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to use this command.");
     if(member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
 
     let embed = new Discord.RichEmbed()
@@ -275,26 +275,26 @@ client.on("message", async message => {
 
   if(command === "ban") {
 
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
-    let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Nope.");
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be banned!");
+    let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
+    let reason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("You don't have permission to use this command.");
+    if(member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be banned!");
 
-    let banEmbed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setDescription("~Ban~")
     .setColor("#bc0000")
-    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+    .addField("Banned User", `${member} with ID ${member.id}`)
     .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Banned In", message.channel)
     .addField("Time", message.createdAt)
-    .addField("Reason", bReason);
+    .addField("Reason", reason);
 
     let incidentchannel = message.guild.channels.find(`name`, "general");
     if(!incidentchannel) return message.channel.send("Can't find general channel.");
 
-    message.guild.member(bUser).ban(bReason);
-    incidentchannel.send(banEmbed);
+    message.guild.member(member).ban(reason);
+    incidentchannel.send(embed);
 
 
     return;
