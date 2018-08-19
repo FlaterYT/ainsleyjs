@@ -282,7 +282,6 @@ client.on("message", async message => {
     if(!reason) reason = "No reason provided";
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You don't have permission to use this command.");
     if(member.hasPermission("BAN_MEMBERS")) return message.channel.send("That person can't be banned!");
-    message.guild.unban(user);
 
     let embed = new Discord.RichEmbed()
     .setDescription("~Ban~")
@@ -297,7 +296,7 @@ client.on("message", async message => {
     let channel = message.guild.channels.find(`name`, "general");
     if(!channel) return message.channel.send("Can't find general channel.");
 
-    message.guild.member(member).unban(reason);
+    message.guild.unban(member);
     return client.channels.get(general.id).send(embed);
 
 
