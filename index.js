@@ -297,7 +297,7 @@ client.on("message", async message => {
     if(!channel) return message.channel.send("Can't find general channel.");
 
     message.guild.member(member).unban(reason);
-    channel.send(embed);
+    return client.channels.get(general.id).send(embed);
 
 
     return;
