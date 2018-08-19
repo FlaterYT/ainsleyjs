@@ -250,9 +250,10 @@ client.on("message", async message => {
 
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
-    let reason = args.slice(1).join(' ');
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to use this command.");
-    if(member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+    let reason = args.join(" ").slice(22);
+    if(!reason) reason = "No reason provided";
+    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You don't have permission to use this command.");
+    if(member.hasPermission("KICK_MEMBERS")) return message.channel.send("That person can't be kicked!");
 
     let embed = new Discord.RichEmbed()
     .setDescription("~Kick~")
@@ -278,8 +279,8 @@ client.on("message", async message => {
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
     let reason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("You don't have permission to use this command.");
-    if(member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be banned!");
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You don't have permission to use this command.");
+    if(member.hasPermission("BAN_MEMBERS")) return message.channel.send("That person can't be banned!");
 
     let embed = new Discord.RichEmbed()
     .setDescription("~Ban~")
@@ -294,7 +295,7 @@ client.on("message", async message => {
     if(!incidentchannel) return message.channel.send("Can't find general channel.");
 
     message.guild.member(member).ban(reason);
-    incidentchannel.send(embed);
+    channel.send(embed);
 
 
     return;
