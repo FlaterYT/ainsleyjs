@@ -250,7 +250,7 @@ client.on("message", async message => {
 
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
-    let kReason = args.join(" ").slice(22);
+    let reason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nope.");
     if(member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
 
@@ -261,12 +261,12 @@ client.on("message", async message => {
     .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
     .addField("Time", message.createdAt)
-    .addField("Reason", kReason);
+    .addField("Reason", reason);
 	  
     let kickChannel = message.guild.channels.find(`name`, "general");
     if(!kickChannel) return message.channel.send("Can't find general channel.");
 
-    message.guild.member(member).kick(kReason);
+    message.guild.member(member).kick(reason);
     kickChannel.send(kickEmbed);
 
     return;
