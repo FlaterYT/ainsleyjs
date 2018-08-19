@@ -308,11 +308,11 @@ client.on("message", async message => {
 
     //!report @ned this is the reason
 
-    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!rUser) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
-    let rreason = args.join(" ").slice(22);
+    let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
+    let reason = args.join(" ").slice(22);
 
-    let reportEmbed = new Discord.RichEmbed()
+    let embed = new Discord.RichEmbed()
     .setDescription("Reports")
     .setColor("#15f153")
     .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
@@ -321,12 +321,12 @@ client.on("message", async message => {
     .addField("Time", message.createdAt)
     .addField("Reason", reason);
 
-    let reportschannel = message.guild.channels.find(`name`, "reports");
-    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+    let channel = message.guild.channels.find(`name`, "reports");
+    if(!channel) return message.channel.send("Couldn't find reports channel.");
 
 
     message.delete().catch(O_o=>{});
-    reportschannel.send(reportEmbed);
+    channel.send(embed);
 
     return;
   }
