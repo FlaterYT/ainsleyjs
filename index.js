@@ -274,7 +274,7 @@ client.on("message", async message => {
     return;
   }
 
-  if(command === "ban") {
+  if(command === "unban") {
 
     let member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!member) return message.channel.send("You must enter a valid user ID or by tagging them to use this command.");
@@ -291,8 +291,12 @@ client.on("message", async message => {
     .addField("Banned In", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", reason);
+	  
+	  
+    let channel = message.guild.channels.find(`name`, "general");
+    if(!channel) return message.channel.send("Can't find general channel.");
 
-    message.guild.member(member).ban(reason);
+    message.guild.member(member).unban(reason);
     channel.send(embed);
 
 
