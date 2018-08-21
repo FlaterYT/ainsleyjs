@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
 client.config = config;
-  owner: '136191833196855296'
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -391,7 +390,7 @@ client.on('message', (message) => {
 client.on('message', (message) => {
   const args = message.content.split(" ").slice(1);
 	
-    if (message.content.startsWith(config.prefix + "eval")) {
+    if (message.content.startsWith("ainsley eval")) {
     if(message.author.id !== "136191833196855296") return;
     try {
       const code = args.join(" ");
