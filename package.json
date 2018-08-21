@@ -8,6 +8,7 @@
     "start": "node index.js"
   },
   "engines": {
+    "node": "6.5.0",
     "npm": "3.10.7"
   },
   "author": "Flater",
