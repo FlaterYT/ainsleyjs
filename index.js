@@ -387,11 +387,11 @@ client.on('message', (message) => {
     }
 });
 
-client.on("message", message => {
+client.on('message', (message) => {
   const args = message.content.split(" ").slice(1);
-
-  if (message.content.startsWith("ainsley eval")) {
-    if(message.author.id !== config.ownerID) return;
+	
+    if (message.content.startsWith("a!eval")) {
+    if(message.author.id !== "136191833196855296") return;
     try {
       const code = args.join(" ");
       let evaled = eval(code);
