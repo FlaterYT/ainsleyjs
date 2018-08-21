@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ fetchAllMembers: true, sync: true });
 const config = require('./config.json');
 client.config = config;
+  owner: '136191833196855296'
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -185,7 +186,7 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('guildMemberRemove', member => {
-    let channel = member.guild.channels.find('name', 'welcome_leave');
+    let channel = member.guild.channels.find('name', 'welcome-leave');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
