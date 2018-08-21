@@ -387,11 +387,11 @@ client.on('message', (message) => {
     }
 });
 
-client.on('message', (message) => {
+client.on("message", message => {
   const args = message.content.split(" ").slice(1);
-	
-    if (message.content.startsWith("ainsley eval")) {
-    if(message.author.id !== "136191833196855296") return;
+
+  if (message.content.startsWith(config.prefix + "eval")) {
+    if(message.author.id !== config.ownerID) return;
     try {
       const code = args.join(" ");
       let evaled = eval(code);
@@ -405,12 +405,5 @@ client.on('message', (message) => {
     }
   }
 });
-
-function clean(text) {
-  if (typeof(text) === "string")
-    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-  else
-      return text;
-}
 	    
 client.login(process.env.B0T_T0KEN);
